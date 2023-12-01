@@ -1,7 +1,8 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { info } from "../../../logger/logger";
 
 async function execute(interaction: CommandInteraction) {
-  console.log(
+  info(
     "Start a new adventure for user [%s - %s]",
     interaction.user.globalName,
     interaction.user.id
