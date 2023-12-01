@@ -1,0 +1,31 @@
+{
+  "name": "bigadventures",
+  "version": "1.0.0",
+  "description": "Get your own adventure",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node ./app/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathisBicheyre/BigAdventures.git"
+  },
+  "author": "MathisBicheyre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathisBicheyre/BigAdventures/issues"
+  },
+  "homepage": "https://github.com/MathisBicheyre/BigAdventures#readme",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "eslint": "^8.54.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.1.1",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  }
+}
