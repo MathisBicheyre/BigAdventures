@@ -1,4 +1,11 @@
-export type Guild = {
+export class Guild {
   id: string;
-  name: string;
-};
+  parentId: string;
+  archiveId: string;
+
+  constructor(id: string, parentId: string, archiveId: string) {
+    this.id = id;
+    this.parentId = parentId;
+    this.archiveId = archiveId;
+  }
+}
