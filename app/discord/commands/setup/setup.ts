@@ -7,7 +7,7 @@ import {
 import { findGuild, createGuild } from "../../../data/guild/GuildRepository";
 import { Guild } from "../../../data/guild/guild";
 import { createChannelCategory } from "../../channels";
-import { info } from "../../../logger/logger";
+import { info } from "#logger";
 
 async function execute(interaction: CommandInteraction) {
   if (!interaction.guild || !interaction.guildId) {

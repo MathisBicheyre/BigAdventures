@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
 
-import { warning, info } from "../logger/logger";
+import { warning, info } from "#logger";
 
 export default function connectToDiscord() {
   const token = process.env.DISCORD_TOKEN;

@@ -1,5 +1,5 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
-import { info } from "../../../logger/logger";
+import { info } from "#logger";
 
 async function execute(interaction: CommandInteraction) {
   info(
