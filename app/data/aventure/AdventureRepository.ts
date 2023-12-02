@@ -1,4 +1,4 @@
-import { run } from "../connector";
+import {findOne, run} from "../connector";
 import { Adventure } from "./Adventure";
 
 export function createAdventure(adventure: Adventure): number | bigint {
@@ -12,4 +12,8 @@ export function createAdventure(adventure: Adventure): number | bigint {
     throw new Error("Unexpected result changes while inserting adventure");
   }
   return result.lastInsertRowid;
+}
+
+export function findAdventureByUserId(userId: string): Adventure | null{
+  return findOne("SELECT * from adventures WHERE user_id = ?", userId) as Adventure | null;
 }

@@ -17,7 +17,7 @@ export async function createChannelCategory(
   return category;
 }
 
-export async function createTextChannel(
+export async function createPrivateTextChannel(
   name: string,
   parentId: string,
   userId: string,

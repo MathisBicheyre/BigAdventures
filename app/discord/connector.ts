@@ -5,7 +5,7 @@ import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
 import { warning, info } from "#logger";
 
 export default function connectToDiscord() {
-  const token = process.env.DISCORD_TOKEN;
+  const token = process.env.DISCORD_API_KEY;
   const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
   const foldersPath = path.join(__dirname, "commands");

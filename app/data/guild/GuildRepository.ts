@@ -1,4 +1,4 @@
-import { Guild } from "./guild";
+import { Guild } from "./Guild";
 import { findOne, run } from "../connector";
 
 export function createGuild(guild: Guild) {
