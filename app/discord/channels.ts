@@ -1,33 +1,27 @@
-import {
-  ChannelType,
-  GuildChannelManager,
-  CategoryChannel,
-  TextChannel,
-} from "discord.js";
-
-export async function createChannelCategory(
-  name: string,
-  channels: GuildChannelManager
-): Promise<CategoryChannel> {
-  const category = (await channels.create({
-    name: name,
-    type: ChannelType.GuildCategory,
-  })) as CategoryChannel;
-
-  return category;
-}
+import {BaseGuildTextChannel, ChannelType, GuildChannelManager, TextChannel,} from "discord.js";
 
 export async function createPrivateTextChannel(
-  name: string,
-  parentId: string,
-  userId: string,
-  channels: GuildChannelManager
+    name: string,
+    parentId: string,
+    ownerId: string,
+    userId: string,
+    channels: GuildChannelManager
 ): Promise<TextChannel> {
-  const channel = (await channels.create({
-    name: name,
-    type: ChannelType.GuildText,
-    parent: parentId,
-  })) as TextChannel;
+    const channel = (await channels.create({
+        name: name,
+        type: ChannelType.GuildText,
+        parent: parentId
+    }));
+    const syncedChannel = await channel.lockPermissions();
+    await syncedChannel.permissionOverwrites.edit(userId, {SendMessages: true});
+    await syncedChannel.permissionOverwrites.edit(ownerId, {SendMessages: true});
+    return syncedChannel;
+}
 
-  return channel;
+export function removeWritePermissionsForUser(channel: BaseGuildTextChannel, userId: string) {
+    return channel.permissionOverwrites.edit(userId, {SendMessages: false});
+}
+
+export async function giveWritePermissionsForUser(channel: BaseGuildTextChannel, userId: string) {
+    return channel.permissionOverwrites.edit(userId, {SendMessages: true});
 }

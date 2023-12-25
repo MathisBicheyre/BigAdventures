@@ -4,7 +4,8 @@
   "description": "Get your own adventure",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node ./app/index.ts"
+    "start": "npx ts-node ./app/index.ts",
+    "refresh": "npx ts-node ./app/discord/deploy-commands.ts"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
-import Database, { RunResult } from 'better-sqlite3';
+import Database, {RunResult} from 'better-sqlite3';
 
-const db = new Database('../../db/BigAdventures.db', {});
+const db = new Database('./db/BigAdventures.sqlite', {});
 db.pragma('journal_mode = WAL');
 
 export function findOne(query: string, ...params: any[]): unknown {
