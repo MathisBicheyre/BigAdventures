@@ -13,8 +13,8 @@ export async function createPrivateTextChannel(
         parent: parentId
     }));
     const syncedChannel = await channel.lockPermissions();
-    await syncedChannel.permissionOverwrites.edit(userId, {SendMessages: true});
-    await syncedChannel.permissionOverwrites.edit(ownerId, {SendMessages: true});
+    await syncedChannel.permissionOverwrites.edit(userId, {SendMessages: true, ViewChannel: true});
+    await syncedChannel.permissionOverwrites.edit(ownerId, {SendMessages: true, ViewChannel: true});
     return syncedChannel;
 }
 
